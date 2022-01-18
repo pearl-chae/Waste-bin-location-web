@@ -1,8 +1,11 @@
 # Waste bin Location guide 프로젝트 목적
 
 ● 요즘 기업에서 ESG(Environment, Society, Goverment) 환경 사회 지배구조를 일컫는 말로 투자의사 결정시 고려하도록 하는 핵심 요소입니다.
+
 ● Waste bin Location guide 프로젝트를 통해 많은 사람들이 환경보호에 쉽게 참여하게 되어 기업 환경 사회 긍정적 방향을 이끌어 낼 수 있습니다.
+
 ● 사람들이 길가에 쓰레기를 무단 투기하지 않게 하기 위해 쓰레기통 위치를 안내하도록 개발하였습니다.
+
 ● 쓰레기를 버릴 때 어떤 종류의 쓰레기인지, 쓰레기 분리수거 방법에 대해 헷갈릴 때가 많습니다. 쓰레기 사진을 업로드하면 쓰레기 종류와 분리수거 방법을 안내하여 올바른 분리수거를 할 수 있도록 안내하도록 개발하였습니다.
 
 # 프로젝트 결과물 test-PC
@@ -25,11 +28,13 @@ test\Waste bin Location guide - PC.mp4
 # 프로젝트 배포 사이트
 
 ● https://wastebinlocationguide.netlify.app
+
 ● 반응형 웹으로 모바일,테블릿, PC 기기 어느 곳에서 다 사용가능합니다.
 
 # 사용한 API
 
-● Kakao map api (http://apis.map.kakao.com/)  
+● Kakao map api (http://apis.map.kakao.com/)
+
 ● 서울 구로구가로휴지통 정보조회서비스 (https://www.data.go.kr/tcs/dss/selectFileDataDetailView.do?publicDataPk=15087773#tab-layer-openapi)
 
 # 저작권, 라이선스 정보
