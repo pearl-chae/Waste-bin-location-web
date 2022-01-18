@@ -10,7 +10,7 @@
 
 # 프로젝트 결과물 test-PC
 
-test\Waste bin Location guide - PC.mp4
+![Alt Text](https://github.com/pearl-chae/Waste-bin-location-web/blob/0bbbfb974d6278969f51a083bba62fade51b2870/test/pc.jpg)
 
 # HOME - 메인 페이지
 
