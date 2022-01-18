@@ -8,19 +8,19 @@
 
 ● 쓰레기를 버릴 때 어떤 종류의 쓰레기인지, 쓰레기 분리수거 방법에 대해 헷갈릴 때가 많습니다. 쓰레기 사진을 업로드하면 쓰레기 종류와 분리수거 방법을 안내하여 올바른 분리수거를 할 수 있도록 안내하도록 개발하였습니다.
 
-# 프로젝트 결과물 test-PC
+# WASTE BIN LOCATION GUIDE WEB (PC)
 
 ![Alt Text](https://github.com/pearl-chae/Waste-bin-location-web/blob/1fafc17be063a4660ff5d14db5313ba7f838550f/test/PC.jpg)
 
-# HOME - 메인 페이지
+# HOME - 메인 페이지 (mobile)
 
 ![Alt Text](https://github.com/pearl-chae/Waste-bin-location-web/blob/0bbbfb974d6278969f51a083bba62fade51b2870/test/mobile_home.gif)
 
-# WASTE BIN MAP - 쓰레기통 위치 안내
+# WASTE BIN MAP - 쓰레기통 위치 안내 (mobile)
 
 ![Alt Text](https://github.com/pearl-chae/Waste-bin-location-web/blob/0bbbfb974d6278969f51a083bba62fade51b2870/test/mobile_map.gif)
 
-# WASTE SORTING - 쓰레기 종류 와 분리수거 방법 안내
+# WASTE SORTING - 쓰레기 종류 와 분리수거 방법 안내 (mobile)
 
 ● 시작 버튼을 클릭하여 이미지 업로드한 다음 예측 버튼을 눌러야 예측합니다.
 
