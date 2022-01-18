@@ -103,26 +103,9 @@
                                         });
                         
                                         // 인포윈도우를 지도에 표시한다
-                                        markers.push(marker);
-                                        kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-                                        kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
-                                        kakao.maps.event.addListener(marker, 'touchstart', makeOverListener(map, marker, infowindow));
-                                        kakao.maps.event.addListener(marker, 'touchend', makeOutListener(infowindow));
-                                      }
-                         
-                                        // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
-                                        function makeOverListener(map, marker, infowindow) {
-                                              return function() {
-                                                        infowindow.open(map, marker);
-                                                          };
-                                                        }
-                                                        // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-                                                        function makeOutListener(infowindow) {
-                                                              return function() {
-                                                                        infowindow.close();
-                                                                          };
-                                                                        }                                     
-                                                                       });
+                                       infowindow.push(map,marker);
+                                    }
+                                  });
                                 </script>
                               </section>
                             </div>
