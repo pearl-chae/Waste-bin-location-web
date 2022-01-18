@@ -10,7 +10,7 @@
 
 # 프로젝트 결과물 test-PC
 
-![Alt Text](https://github.com/pearl-chae/Waste-bin-location-web/blob/0bbbfb974d6278969f51a083bba62fade51b2870/test/pc.jpg)
+![Alt Text](https://github.com/pearl-chae/Waste-bin-location-web/blob/1fafc17be063a4660ff5d14db5313ba7f838550f/test/PC.jpg)
 
 # HOME - 메인 페이지
 
