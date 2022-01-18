@@ -106,8 +106,8 @@
                                         markers.push(marker);
                                         kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
                                         kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
-                                        kakao.maps.event.addListener(marker, 'tap', makeOverListener(map, marker, infowindow));
-                                        kakao.maps.event.addListener(marker, 'doubletap', makeOutListener(infowindow));
+                                        kakao.maps.event.addListener(marker, 'touchstart', makeOverListener(map, marker, infowindow));
+                                        kakao.maps.event.addListener(marker, 'touchend', makeOutListener(infowindow));
                                       }
                          
                                         // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
