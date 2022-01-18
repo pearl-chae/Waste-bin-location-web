@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Waste bin Location guide</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175462567-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-175462567-1');
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1 class="site-heading text-center text-faded d-none d-lg-block">
+        <span class="site-heading-upper text-primary mb-3"
+          >Open Source Project</span
+        >
+        <span class="site-heading-lower">Waste bin Location guide</span>
+      </h1>
+    </header>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+      <div class="container">
+        <a
+          class="navbar-brand text-uppercase fw-bold d-lg-none"
+          href="index.html"
+          >>Waste bin Location guide</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase" href="index.html">Home</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase" href="map.html">Waste bin Map</a>
+            </li>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase" href="sorting.html">Waste Sorting</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+        <div class="about-heading-content">
+          <div class="row">
+            <div class="col-xl-9 col-lg-10 mx-auto">
+              <div class="bg-faded rounded p-5">
+                <h2 class="section-heading mb-4">
+                  <span class="section-heading-upper"
+                    >Teachable Machine Image Model을 이용한 쓰레기 분리수거</span
+                  >
+                  <span class="section-heading-lower">Waste Sorting</span>
+                </h2>
+                <div>사용 방법 : 시작 버튼을 눌러 모델을 불러 온 다음 이미지 업로드를 하여 예측버튼을 눌러주세요</div>
+                <button type="button" onclick="init()">시작</button>
+                <button type="button" onclick="predict()">예측</button>
+                <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<div class="file-upload" style="width:100%; background-color:#ffffff; ">
+  <button class="file-upload-btn" style="width: 100%;" type="button" onclick="$('.file-upload-input').trigger( 'click' )">이미지 추가</button>
+
+  <div class="image-upload-wrap">
+    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+    <div class="drag-text">
+      <h3>사진을 올려놓거나 눌러서 업로드하세요</h3>
+    </div>
+  </div>
+  <div class="file-upload-content">
+    <img class="file-upload-image" id="trash-image" src="#" alt="your image" />
+    <div class="image-title-wrap">
+      <button type="button" onclick="removeUpload()" class="remove-image">이미지 제거 <span class="image-title">이미지 업로드</span></button>
+    </div>
+  </div>
+</div>
+                <div id="webcam-container"></div>
+                <div id="label-container"></div>
+                <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+                <script>
+                  function readURL(input) {
+  if (input.files && input.files[0]) {
+
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('.image-upload-wrap').hide();
+
+      $('.file-upload-image').attr('src', e.target.result);
+      $('.file-upload-content').show();
+
+      $('.image-title').html(input.files[0].name);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+
+  } else {
+    removeUpload();
+  }
+}
+
+function removeUpload() {
+  $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+  $('.file-upload-content').hide();
+  $('.image-upload-wrap').show();
+}
+$('.image-upload-wrap').bind('dragover', function () {
+		$('.image-upload-wrap').addClass('image-dropping');
+	});
+	$('.image-upload-wrap').bind('dragleave', function () {
+		$('.image-upload-wrap').removeClass('image-dropping');
+});
+
+                </script>
+                    <div id="label-container"></div>
+                <script type="text/javascript">
+                    // More API functions here:
+                    // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+                
+                    // the link to your model provided by Teachable Machine export panel
+                    const URL = "https://teachablemachine.withgoogle.com/models/0eUo3pQhL/";
+                
+                    let model, webcam, labelContainer, maxPredictions;
+                    var labeling={
+          담배꽁초:{
+            name:'담배꽁초',
+            way: '불을 끄고 일반 쓰레기통에 버리세요'
+          },
+          유리:{
+            name:'유리',
+            way:'1.깨진 유리 : 신문지 여러 겹으로 감쌀 것 2.뾰족한 유리조각 : 신문지를 여러 겹 감싸서 쓰레기 봉투 밖으로 빠져나가지 않도록 하기 기타 유리는 재활용이 안 되기 때문에 일반 종량제 봉투에 넣어 버리면 된다. '
+          },
+          스티로폼:{
+            name:'스티로폼',
+            way:'스티로폼 내용물을 완전히 비우고 테이프, 상표 등 제거 한 뒤 버려야 한다. 이물질이 많이 묻었다면 스티로폼을 쪼개 종량제봉투에 담아버리세요 '
+          },
+          종이:{
+            name:'종이',
+            way:'종이류에 버려주세요 '
+          },
+          캔:{
+            name:'캔 쓰레기',
+            way:'내용물을 모두 비우고 깨끗하게 씻어 발로 밟아 부피를 줄여 버려야 합니다 '
+          },
+          페트병:{
+            name:'페트병',
+            way:'음식물 등 내용물 깨끗이 비우고, 다른 재질 부분 제거하여 압착하여 배출한다. '
+          },
+          플라스틱:{
+            name:'플라스틱',
+            way:'음식물 등 내용물 깨끗이 비우고, 다른 재질 부분 제거하여 압착하여 배출한다. '
+          }
+        }
+
+                    // Load the image model and setup the webcam
+                    async function init() {
+                        const modelURL = URL + "model.json";
+                        const metadataURL = URL + "metadata.json";
+                
+                        // load the model and metadata
+                        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+                        // or files from your local hard drive
+                        // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+                        model = await tmImage.load(modelURL, metadataURL);
+                        maxPredictions = model.getTotalClasses();
+                    labelContainer = document.getElementById("label-container");
+                    }
+                    // run the webcam image through the image model
+                    async function predict() {
+                        // predict can take in an image, video or canvas html element
+                        var image=document.getElementById("trash-image");
+                        const prediction = await model.predict(image,false);
+                        var maxProb = 0;
+					var bestClassName;              
+                        for (let i = 0; i < maxPredictions; i++) {
+                                                 if(prediction[i].probability > maxProb) {
+            maxProb = prediction[i].probability.toFixed(2)*100;
+            bestClassName = prediction[i].className;
+            var labelObj = labeling[bestClassName];
+                }
+                      
+               }                     
+               document.getElementById('label-container').innerHTML = bestClassName +'쓰레기 입니다.' +'<br>' + labelObj.way + '<br><br><b>' + '</b>'
+                      
+                        }
+                </script>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    <footer class="footer text-faded text-center py-5">
+      <div class="container">
+        <p class="m-0 small">Copyright &copy; Chaejinju Website 2022</p>
+      </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+  </body>
+
+</html>

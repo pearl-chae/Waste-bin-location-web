@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Waste bin Location guide</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">Open Source project</span>
+                <span class="site-heading-lower">Waste bin Location guide</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.html">>Waste bin Location guide</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html">Home</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="map.html">Waste bin Map</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="sorting.html">Waste Sorting</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section class="page-section about-heading">
+            <div class="container">
+                <div class="about-heading-content">
+                    <div class="row">
+                        <div class="col-xl-9 col-lg-10 mx-auto">
+                          <div class="cta-inner bg-faded text-center rounded">
+                            <div class="bg-faded rounded p-5">
+                                <h2 class="section-heading mb-4">
+                                    <span class="section-heading-upper">서울특별시 구로구</span>
+                                    <span class="section-heading-lower">Waste bin map</span>
+                                </h2>
+                                <div id="map" style="width: 100; height: 50vh;"></div>
+                                <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=846fd35b1c3578d0f87ace63c2570cc1&libraries=clusterer"></script>
+                        
+                                <script>
+                                  const url =
+                                    "https://api.odcloud.kr/api/15087773/v1/uddi:6bcb9ebf-d368-4ac8-9382-a9e82437f74d?page=1&perPage=10&serviceKey=data-portal-test-key";
+                        
+                                  var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+                                    mapOption = {
+                                      center: new kakao.maps.LatLng(37.48289633, 126.8868871), // 지도의 중심좌표
+                                      level: 3, // 지도의 확대 레벨
+                                      mapTypeId: kakao.maps.MapTypeId.ROADMAP, // 지도종류
+                                    };
+                                  // 지도를 생성한다
+                                  var map = new kakao.maps.Map(mapContainer, mapOption);
+                        
+                                  // 마커 이미지의 주소
+                                  var markerImageUrl =
+                                      "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678095-trashcan-256.png",
+                                    markerImageSize = new kakao.maps.Size(40, 42), // 마커 이미지의 크기
+                                    markerImageOptions = {
+                                      offset: new kakao.maps.Point(20, 42), // 마커 좌표에 일치시킬 이미지 안의 좌표
+                                    };
+                        
+                                  // 마커 이미지를 생성한다
+                                  var markerImage = new kakao.maps.MarkerImage(
+                                    markerImageUrl,
+                                    markerImageSize,
+                                    markerImageOptions
+                                  );
+                        
+                                  fetch(url)
+                                    .then((res) => res.json())
+                                    .then((myJson) => {
+                                      var markers = [];
+                                      const data = myJson.data;
+                        
+                                      for (var i = 0; i < data.length; i++) {
+                                        // 지도에 마커를 생성하고 표시한다
+                                        var marker = new kakao.maps.Marker({
+                                          position: new kakao.maps.LatLng(
+                                            data[i]["위도"],
+                                            data[i]["경도"]
+                                          ), // 마커의 좌표
+                                          draggable: true, // 마커를 드래그 가능하도록 설정한다
+                                          image: markerImage, // 마커의 이미지
+                                          map: map, // 마커를 표시할 지도 객체
+                                        });
+                        
+                                        // 마커 위에 표시할 인포윈도우를 생성한다
+                                        var infowindow = new kakao.maps.InfoWindow({
+                                          content: "도로명주소 : "+data[i]["소재지도로명주소"]+"<br/>"+"  .", // 인포윈도우에 표시할 내용
+                                        });
+                        
+                                        // 인포윈도우를 지도에 표시한다
+                                        markers.push(marker);
+                                        kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+}
+                                        // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+function makeOverListener(map, marker, infowindow) {
+    return function() {
+        infowindow.open(map, marker);
+    };
+}
+
+// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+function makeOutListener(infowindow) {
+    return function() {
+        infowindow.close();
+    };
+}
+
+                                      
+                                    });
+                                </script>
+                              </section>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Copyright &copy; ChaeJinju Website 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
