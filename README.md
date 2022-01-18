@@ -14,16 +14,17 @@ test\Waste bin Location guide - PC.mp4
 
 # HOME - 메인 페이지
 
-![Alt Text](test\mobile_home.gif)
+![Alt Text](https://github.com/pearl-chae/Waste-bin-location-web/blob/0bbbfb974d6278969f51a083bba62fade51b2870/test/mobile_home.gif)
 
 # WASTE BIN MAP - 쓰레기통 위치 안내
 
-![Alt Text](test\mobile_map.gif)
+![Alt Text](https://github.com/pearl-chae/Waste-bin-location-web/blob/0bbbfb974d6278969f51a083bba62fade51b2870/test/mobile_map.gif)
 
 # WASTE SORTING - 쓰레기 종류 와 분리수거 방법 안내
 
 ● 시작 버튼을 클릭하여 이미지 업로드한 다음 예측 버튼을 눌러야 예측합니다.
-![Alt Text](test\mobile_sorting.gif)
+
+![Alt Text](https://github.com/pearl-chae/Waste-bin-location-web/blob/0bbbfb974d6278969f51a083bba62fade51b2870/test/mobile_sorting.gif)
 
 # 프로젝트 배포 사이트
 
