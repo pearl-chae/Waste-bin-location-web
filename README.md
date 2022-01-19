@@ -40,6 +40,16 @@
 
 # 저작권, 라이선스 정보
 
+● 아이콘
+
+<a href="https://www.flaticon.com/kr/free-icons/" title="폐물 아이콘">폐물 icons created by Skyclick - Flaticon</a>
+
+● 홈페이지 배경화면
+
+https://grafolio.naver.com/wallpaper/256918
+
+Copyright © 폼실 All Rights Reserved.
+
 ● 홈페이지 템플릿
 
 The MIT License (MIT)
@@ -63,6 +73,18 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+● 쓰레기통 마커 이미지
+
+https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678095-trashcan-256.png
+
+Attribution 3.0 Unported (CC BY 3.0)
+You are free to:
+Share — copy and redistribute the material in any medium or format
+Adapt — remix, transform, and build upon the material
+for any purpose, even commercially.
+This license is acceptable for Free Cultural Works.
+The licensor cannot revoke these freedoms as long as you follow the license terms.
 
 ● 이미지 업로드
 
