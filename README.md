@@ -14,15 +14,19 @@
 
 # HOME - 메인 페이지 (mobile)
 
+● 메인 페이지는 Waste bin Location guide 홈페이지에 대해 간략한 소개 하였습니다.
+
 ![Alt Text](https://github.com/pearl-chae/Waste-bin-location-web/blob/0bbbfb974d6278969f51a083bba62fade51b2870/test/mobile_home.gif)
 
 # WASTE BIN MAP - 쓰레기통 위치 안내 (mobile)
+
+● 카카오 api, 서울시 구로구 가로쓰레기통 공공데이터 api를 활용하여 지도에 쓰레기통 위치를 마커와 세부주소 인포윈도우를 함께 표시하여 안내합니다.
 
 ![Alt Text](https://github.com/pearl-chae/Waste-bin-location-web/blob/0bbbfb974d6278969f51a083bba62fade51b2870/test/mobile_map.gif)
 
 # WASTE SORTING - 쓰레기 종류 와 분리수거 방법 안내 (mobile)
 
-● 시작 버튼을 클릭하여 이미지 업로드한 다음 예측 버튼을 눌러야 예측합니다.
+● teachable machine을 통해 플라스틱,담배꽁초,캔,유리 등 쓰레기 이미지를 분류할 수 있도록 기계학습을 학습이 된 모델을 시작 버튼을 클릭하여 불러 옵니다. 이미지 업로드를 한 다음 예측 버튼을 눌러야 쓰레기 종류와 분리수거 방법에 대한 결과 값을 얻을 수 있습니다.
 
 ![Alt Text](https://github.com/pearl-chae/Waste-bin-location-web/blob/0bbbfb974d6278969f51a083bba62fade51b2870/test/mobile_sorting.gif)
 
