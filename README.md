@@ -43,6 +43,8 @@
 ● 아이콘
 
 <a href="https://www.flaticon.com/kr/free-icons/" title="폐물 아이콘">폐물 icons created by Skyclick - Flaticon</a>
+"https://www.flaticon.com/kr/free-icons/" title="폐물 아이콘"
+폐물 icons created by Skyclick - Flaticon
 
 ● 홈페이지 배경화면
 
