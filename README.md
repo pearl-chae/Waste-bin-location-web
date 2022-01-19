@@ -34,7 +34,7 @@
 
 ● https://wastebinlocationguide.netlify.app
 
-● 반응형 웹으로 모바일,테블릿, PC 기기 어느 곳에서 다 사용가능합니다.
+● 반응형 웹(웹앱)으로 모바일,테블릿, PC 기기 어느 곳에서 다 사용가능합니다.
 
 # 사용한 API
 
