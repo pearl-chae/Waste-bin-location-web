@@ -10,7 +10,7 @@
 
 # WASTE BIN LOCATION GUIDE WEB (PC)
 
-![my_video](https://github.com/pearl-chae/Waste-bin-location-web/blob/d17b68f42d8eb7579d0cc39f5b1464ef2b614f59/test/Waste%20bin%20Location%20guide%20-%20PC.mp4)
+![Alt Text](https://github.com/pearl-chae/Waste-bin-location-web/blob/96ba79ca9540cb872dd219815d9a7af1651f7146/test/Waste%20bin%20Location%20guide%20PC.gif)
 
 # HOME - 메인 페이지 (mobile)
 
